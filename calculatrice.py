@@ -1,44 +1,67 @@
-print("Bienvenue dans la calculatrice :")
+def addition(a,b):
+    return a+b
 
-continuer = "o"
+def soustraction(a,b):
+    return a-b
 
-while continuer == "o":
+def multiplication(a,b):
+    return a*b
 
-    a = float(input("Entrez un nombre :"))
+def division(a,b):
+    return a/b
 
+def menu():
     print("1-Addition")
     print("2-Soustraction")
     print("3-Multiplication")
     print("4-Division")
-    operation = int(input("Entrez l'opération désirée :"))
+
+
+def main():
+
+
+    print("Bienvenue dans la calculatrice !")
+
+    continuer = "o"
+
+    while continuer.lower() == "o":
     
+        a = float(input("Entrez le premier nombre :"))
 
-    b = float(input("Entrez le second nombre :"))
+        menu()
 
-    if operation == 1:
-        print("Le résultat : ",a+b)
+        op = int(input("Entrez l'opérateur :"))
 
-    elif operation == 2:
-        print("Le résultat : ",a-b)
+        b = float(input("Entrez le deuxième nombre :"))
 
-    elif operation == 3:
-        print("Le résultat : ",a*b)
+        if op == 1:
+            print("Le résultat : ",addition(a,b))
 
-    elif operation == 4:
+        elif op == 2:
+            print("Le résultat : ",soustraction(a,b))
 
-        while b == 0:
-            print("L'opération n'est pas possible.")
-            b = float(input("Entrez le second nombre :"))
+        elif op == 3:
+            print("Le résultat : ",multiplication(a,b))
+
+        elif op == 4:
+            while b == 0:
+                print("L'opération est impossible.")
+                b = float(input("Entrez le deuxième nombre :"))
+            print("Le résultat : ",division(a,b))
+
+        else:
+            print("L'opérateur est incorrecte.")
         
-        print("Le résultat : ",a/b)
-    
-    else:
-        print("Ce n'est pas une opération valide.")
-    
-    print("Voilà !")
-    continuer = input("Veux-tu continuer ? (o/n) :")
-    if continuer == "o":
-        print("On continue !")
-    else:
-        print("Au revoir !")
-        break
+        continuer = input("Voulez vous continuer à jouer ? (o/n) :")
+
+        if continuer.lower() == "o":
+            print("C'est reparti !")
+
+        else:
+            print("Au revoir !")
+            break
+
+
+if __name__ == "__main__":
+    main()
+
